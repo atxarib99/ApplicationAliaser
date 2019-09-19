@@ -13,6 +13,8 @@ for filename in /Applications/*.app; do
 	alname=$( echo "${a// /}" | tr '[:upper:]' '[:lower:]')
 	#echo what alias will be creates
 	echo "alias created ${alname}"
+	#format the filename to add '\ ' instead of just space
+	formattedFilename=${filename// /\\\ }
 	#echo the actual alias command to the alias location
-	echo "alias ${alname}=\"open $filename\"" >> $BASHALIAS
+	echo "alias ${alname}=\"open $formattedFilename\"" >> $BASHALIAS
 done
