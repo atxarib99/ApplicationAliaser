@@ -1,7 +1,9 @@
 #!/bin/bash
 
 #where to output the alias commands
-BASHALIAS="/etc/bashrc"
+BASHALIAS="$HOME/.aliases"
+
+ZSHRC="$HOME/.zshrc"
 
 #for each file in applications
 for filename in /Applications/*.app; do
@@ -18,3 +20,5 @@ for filename in /Applications/*.app; do
 	#echo the actual alias command to the alias location
 	echo "alias ${alname}=\"open $formattedFilename\"" >> $BASHALIAS
 done
+
+echo "source $BASHALIAS" >> $ZSHRC
